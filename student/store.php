@@ -20,5 +20,5 @@
     // var_dump($name);
     // var_dump(trim($name));//前後空白
     // var_dump(stripslashes($name));//反斜線
-    // var_dump(htmlspecialchars($name));//特殊字元 < > " ' &
-    echo htmlspecialchars($name);
+    // var_dump(htmlspecialchars($name));//特殊字元轉換成一班文字 < > " ' &
+    // echo htmlspecialchars($name);
