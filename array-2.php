@@ -16,3 +16,7 @@
     // implode() 集中 陣列->字串
 
     echo implode('<><><>',$drinks);
+    echo '<br>';
+    // explode() 爆炸 字串->陣列
+    $str = 'hello,php,mysql,!!';
+    print_r(explode(',',$str));
