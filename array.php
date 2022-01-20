@@ -29,3 +29,24 @@
         echo $item;
         echo '<br>';
     }
+
+    //關聯陣列
+
+    $user = [
+        // 鍵key => 值value
+        'name' => 'John',
+        'mail' => 'john@gmail.com',
+        'gender' => '男'
+    ];
+    // print_r($user);
+    // echo $user['name'];
+    // echo $user['mail'];
+    // echo $user['gender'];
+
+    foreach($user as $key => $value){
+        echo $key.':'.$value;
+        echo '<br>';
+    }
+
+
+
