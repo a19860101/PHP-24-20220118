@@ -39,3 +39,15 @@
     // $gender = $users['gender'];
     extract($users);
     echo $name,$mail,$gender,$address,$phone;
+    echo '<br>';
+    
+    // compact() 緊湊
+    $title = 'MacBook Pro';
+    $price = '47900';
+    $screen = '14';
+    $ram = '16GB';
+
+    // $mac = [$title,$price,$screen,$ram];
+    // echo $mac[2];
+    $mac = compact('title','price','screen','ram');
+    print_r($mac);
