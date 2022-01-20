@@ -17,6 +17,15 @@
 
     echo implode('<><><>',$drinks);
     echo '<br>';
+
     // explode() 爆炸 字串->陣列
+    
     $str = 'hello,php,mysql,!!';
     print_r(explode(',',$str));
+    echo '<br>';
+
+    // is_array()
+    var_dump( is_array($str) );
+
+    // in_array()
+    var_dump( in_array('阿薩姆乃茶',$drinks) );
