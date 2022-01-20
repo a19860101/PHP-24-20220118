@@ -51,3 +51,12 @@
     // echo $mac[2];
     $mac = compact('title','price','screen','ram');
     print_r($mac);
+    echo '<br>';
+
+    //shuffle() 搖曳
+
+    shuffle($drinks);
+    foreach($drinks as $drink){
+        echo $drink;
+        echo '<br>';
+    }
