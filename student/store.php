@@ -30,6 +30,16 @@
         return $data;
     }
 
-    $name = check($name);
+    // if($name == ''){
+    //     echo '請輸入姓名';
+    // }
+    if(empty($name) || ctype_space($name)){
+        echo '請輸入姓名';
+    }else{
+        $name = check($name);
+        echo $name;
+    }
+    
     $phone = check($phone);
-    var_dump($phone);
+
+    
