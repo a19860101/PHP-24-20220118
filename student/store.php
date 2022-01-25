@@ -33,13 +33,29 @@
     // if($name == ''){
     //     echo '請輸入姓名';
     // }
-    if(empty($name) || ctype_space($name)){
-        echo '請輸入姓名';
-    }else{
-        $name = check($name);
-        echo $name;
+   
+    function required($data){
+        if(empty($data) || ctype_space($data)){
+            return '請輸入內容';
+        }else{
+            $data = check($data);
+            return $data;
+        }
     }
     
-    $phone = check($phone);
+    $name = required($name);
+    $phone = required($phone);
+    $email = required($email);
 
+    $skill = implode(',',$skill);
+
+    echo "
+        <div>姓名:{$name}</div>
+        <div>電話:{$phone}</div>
+        <div>Email:{$email}</div>
+        <div>性別:{$gender}</div>
+        <div>學歷:{$edu}</div>
+        <div>專長:{$skill}</div>
+        <div>備註:{$comment}</div>
+    ";
     
