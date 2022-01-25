@@ -12,17 +12,20 @@
     // while($data = mysqli_fetch_assoc($result)){
     //     $datas[] = $data;
     // }
+    // print_r($datas);
     // foreach($datas as $data){
     //     echo $data['name'];
     // }
 
     // 方法二
-    $datas = mysqli_fetch_all($result);
-    print_r($datas);
+    $datas = mysqli_fetch_all($result,MYSQLI_ASSOC);
     foreach($datas as $data){
-        print_r($data);
+        // print_r($data);
+        echo $data['name'];
+        echo $data['email'];
+        echo '<br>';
     }
-?>
+// ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
