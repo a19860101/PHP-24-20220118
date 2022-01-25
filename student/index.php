@@ -3,6 +3,14 @@
     // include_once('db.php');
     // require('db.php');
     // require_once('db.php');
+
+    $sql = 'SELECT * FROM students';
+    $result = mysqli_query($db,$sql);
+    while($data = mysqli_fetch_assoc($result)){
+        // print_r($data);
+        echo $data['email'];
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
