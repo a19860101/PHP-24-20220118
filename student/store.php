@@ -22,3 +22,14 @@
     // var_dump(stripslashes($name));//反斜線
     // var_dump(htmlspecialchars($name));//特殊字元轉換成一班文字 < > " ' &
     // echo htmlspecialchars($name);
+
+    function check($data){
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
+    $name = check($name);
+    $phone = check($phone);
+    var_dump($phone);
