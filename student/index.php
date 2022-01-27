@@ -4,8 +4,8 @@
     // require('db.php');
     // require_once('db.php');
 
-    $sql = 'SELECT * FROM students';
-    $result = mysqli_query($db,$sql);
+    // $sql = 'SELECT * FROM students';
+    // $result = mysqli_query($db,$sql);
     
     // 方法一
     // $datas = [];
@@ -18,7 +18,22 @@
     // }
 
     // 方法二
-    $datas = mysqli_fetch_all($result,MYSQLI_ASSOC);
+    // $datas = mysqli_fetch_all($result,MYSQLI_ASSOC);
+
+    //---------------------------------------------------------------------
+
+    $sql = "SELECT * FROM students";
+    // $result = $db->query($sql);
+    // $datas = $result->fetch_all(MYSQLI_ASSOC);
+    $datas = $db->query($sql)->fetch_all(MYSQLI_ASSOC);
+
+    // $result = $db->query($sql);
+    // $datas = [];
+    // while($data = $result->fetch_assoc()){
+    //     $datas[] = $data;
+    // }
+
+
   
 ?>
 <!DOCTYPE html>
