@@ -16,6 +16,11 @@
     $sql = "INSERT INTO students(name,phone,email,edu,gender,skill,comment)VALUES('$name','$phone','$email','$edu','$gender','$skill','$comment')";
     mysqli_query($db,$sql);
 
+    echo '<script>alert("資料已新增!");</script>';
+    header('refresh:0;url=index.php');
+    // echo '資料以新增';
+    // header('refresh:3;url=index.php');
+    // header('location:index.php');
 
     // echo $name;
     // echo '<br>';
