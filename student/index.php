@@ -53,7 +53,7 @@
                 <td><?php echo $data['id'];?></td>
                 <td><?php echo $data['name'];?></td>
                 <td><?php echo $data['phone'];?></td>
-                <td><a href="#">詳細資訊</a></td>
+                <td><a href="show.php?id=<?php echo $data['id'];?>">詳細資訊</a></td>
             </tr>
         <?php } ?>
 
