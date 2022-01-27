@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <h2>建立學員資料</h2>
     <form action="store.php" method="post">
         <div>
             <label for="">姓名</label>
@@ -50,6 +51,7 @@
             <textarea name="comment" id="" cols="30" rows="10"></textarea>
         </div>
         <input type="submit" value="建立資料">
+        <input type="button" value="取消" onclick="history.back()">
     </form>
 </body>
 </html>

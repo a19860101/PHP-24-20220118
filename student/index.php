@@ -40,6 +40,7 @@
 </head>
 <body>
     <h2>學員資料</h2>
+    <a href="create.php">建立學員資料</a>
     <table>
         <tr>
             <th>編號</th>

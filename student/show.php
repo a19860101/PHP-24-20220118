@@ -24,5 +24,6 @@
         <li>專長:<?php echo $data['skill'];?></li>
         <li>備註:<?php echo $data['comment'];?></li>
     </ul>
+    <a href="index.php">學員列表</a>
 </body>
 </html>

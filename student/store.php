@@ -1,5 +1,21 @@
 <?php
+    include('db.php');
+    function check($data){
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
     extract($_REQUEST);
+    $name = check($name);
+    $phone = check($phone);
+    $email = check($email);
+
+    $skill = implode(',',$skill);
+    $sql = "INSERT INTO students(name,phone,email,edu,gender,skill,comment)VALUES('$name','$phone','$email','$edu','$gender','$skill','$comment')";
+    mysqli_query($db,$sql);
+
 
     // echo $name;
     // echo '<br>';
@@ -23,39 +39,34 @@
     // var_dump(htmlspecialchars($name));//特殊字元轉換成一班文字 < > " ' &
     // echo htmlspecialchars($name);
 
-    function check($data){
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
+
 
     // if($name == ''){
     //     echo '請輸入姓名';
     // }
    
-    function required($data){
-        if(empty($data) || ctype_space($data)){
-            return '請輸入內容';
-        }else{
-            $data = check($data);
-            return $data;
-        }
-    }
+    // function required($data){
+    //     if(empty($data) || ctype_space($data)){
+    //         return '請輸入內容';
+    //     }else{
+    //         $data = check($data);
+    //         return $data;
+    //     }
+    // }
     
-    $name = required($name);
-    $phone = required($phone);
-    $email = required($email);
+    // $name = required($name);
+    // $phone = required($phone);
+    // $email = required($email);
 
-    $skill = implode(',',$skill);
+    // $skill = implode(',',$skill);
 
-    echo "
-        <div>姓名:{$name}</div>
-        <div>電話:{$phone}</div>
-        <div>Email:{$email}</div>
-        <div>性別:{$gender}</div>
-        <div>學歷:{$edu}</div>
-        <div>專長:{$skill}</div>
-        <div>備註:{$comment}</div>
-    ";
+    // echo "
+    //     <div>姓名:{$name}</div>
+    //     <div>電話:{$phone}</div>
+    //     <div>Email:{$email}</div>
+    //     <div>性別:{$gender}</div>
+    //     <div>學歷:{$edu}</div>
+    //     <div>專長:{$skill}</div>
+    //     <div>備註:{$comment}</div>
+    // ";
     
