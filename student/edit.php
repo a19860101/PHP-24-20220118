@@ -60,6 +60,7 @@
             <label for="">備註</label>
             <textarea name="comment" id="" cols="30" rows="10"><?php echo $data['comment'];?></textarea>
         </div>
+        <input type="hidden" name="id" value="<?php echo $data['id'];?>">
         <input type="submit" value="更新資料">
         <input type="button" value="取消" onclick="history.back()">
     </form>
