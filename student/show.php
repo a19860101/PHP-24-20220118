@@ -25,5 +25,9 @@
         <li>備註:<?php echo $data['comment'];?></li>
     </ul>
     <a href="index.php">學員列表</a>
+    <form action="delete.php" method="post">
+        <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
+        <input type="submit" value="刪除資料">
+    </form>
 </body>
 </html>
