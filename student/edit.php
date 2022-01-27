@@ -38,10 +38,10 @@
         <div>
             <label for="">學歷</label>
             <select name="edu" id="">
-                <option value="國小">國小</option>
-                <option value="國中">國中</option>
-                <option value="高中職">高中職</option>
-                <option value="大專院校">大專院校</option>
+                <option value="國小" <?php echo $data['edu'] == '國小' ? 'selected':'';?>>國小</option>
+                <option value="國中" <?php echo $data['edu'] == '國中' ? 'selected':'';?>>國中</option>
+                <option value="高中職" <?php echo $data['edu'] == '高中職' ? 'selected':'';?>>高中職</option>
+                <option value="大專院校" <?php echo $data['edu'] == '大專院校' ? 'selected':'';?>>大專院校</option>
             </select>
         </div>
         <div>
