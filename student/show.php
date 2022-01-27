@@ -29,5 +29,6 @@
         <input type="hidden" name="id" value="<?php echo $data['id']; ?>">
         <input type="submit" value="刪除資料">
     </form>
+    <a href="edit.php?id=<?php echo $data['id'];?>">編輯</a>
 </body>
 </html>
