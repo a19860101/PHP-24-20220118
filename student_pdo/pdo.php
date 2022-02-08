@@ -26,16 +26,16 @@
     }
 
 
-    try {
-        $sql = 'SELECT * FROM student WHERE id = 1';
+    // try {
+    //     $sql = 'SELECT * FROM student WHERE id = 1';
 
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute();
-        $datas = $stmt->fetchAll();
-        var_dump($datas);
-    }catch(PDOException $e){
-        echo $e->getMessage();
-        // var_dump($e);
-    }
+    //     $stmt = $pdo->prepare($sql);
+    //     $stmt->execute();
+    //     $datas = $stmt->fetchAll();
+    //     var_dump($datas);
+    // }catch(PDOException $e){
+    //     echo $e->getMessage();
+    //     // var_dump($e);
+    // }
 
     

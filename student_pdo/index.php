@@ -1,40 +1,15 @@
 <?php
-    include('db.php');
-    // include_once('db.php');
-    // require('db.php');
-    // require_once('db.php');
+    include('pdo.php');
+    $sql = 'SELECT * FROM students';
+    try{
+        $datas = $pdo->query($sql)->fetchAll();
 
-    // $sql = 'SELECT * FROM students';
-    // $result = mysqli_query($db,$sql);
-    
-    // 方法一
-    // $datas = [];
-    // while($data = mysqli_fetch_assoc($result)){
-    //     $datas[] = $data;
-    // }
-    // print_r($datas);
-    // foreach($datas as $data){
-    //     echo $data['name'];
-    // }
+        // $result = $pdo->query($sql);
+        // $datas = $result->fetchAll();
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
 
-    // 方法二
-    // $datas = mysqli_fetch_all($result,MYSQLI_ASSOC);
-
-    //---------------------------------------------------------------------
-
-    $sql = "SELECT * FROM students";
-    // $result = $db->query($sql);
-    // $datas = $result->fetch_all(MYSQLI_ASSOC);
-    $datas = $db->query($sql)->fetch_all(MYSQLI_ASSOC);
-
-    // $result = $db->query($sql);
-    // $datas = [];
-    // while($data = $result->fetch_assoc()){
-    //     $datas[] = $data;
-    // }
-
-
-  
 ?>
 <!DOCTYPE html>
 <html lang="en">
