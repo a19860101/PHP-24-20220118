@@ -1,23 +1,15 @@
 <?php
-    include('db.php');
+    include('pdo.php');
     extract($_REQUEST);
-    
-    // 方法一
-    // $sql = 'SELECT * FROM students WHERE id = '.$id;
-    // $result = mysqli_query($db,$sql);
-    // $data = mysqli_fetch_assoc($result);
 
-    // 方法二
     $sql = 'SELECT * FROM students WHERE id = ?';
-    $stmt = $db->prepare($sql);
-    $stmt->bind_param('i',$id);
-    /* 
-        i for int
-        s for string
-    */
-    $stmt->execute();
-    $data = $stmt->get_result()->fetch_assoc();
-    
+    try {
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$id]);
+        $data = $stmt->fetch();
+    }catch(PDOException $e){
+        echo $e->getMessage();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
