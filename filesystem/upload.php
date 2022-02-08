@@ -13,11 +13,19 @@
     // echo $error;
     // echo $size;
     
+    // 如果資料夾不存在就建立
     if(!is_dir('images')){
         mkdir('images');
     }
 
-    $target = 'images/'.$name;
+    //檔名
+    $img_name = md5(time());
+    //副檔名
+    $ext = pathinfo($name,PATHINFO_EXTENSION);
+    //完整檔名
+    $fullname = $img_name.'.'.$ext;
+
+    $target = 'images/'.$fullname;
 
     if($error == 0){
         move_uploaded_file($tmp_name,$target);

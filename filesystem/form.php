@@ -12,5 +12,9 @@
         <input type="submit" value="上傳圖片">
     </form>
 
+    <?php
+        // echo md5(uniqid());
+        // echo md5(time());
+    ?>
 </body>
 </html>
