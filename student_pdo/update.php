@@ -1,18 +1,7 @@
 <?php
-    include('db.php');
+    include('pdo.php');
     extract($_REQUEST);
     $skill = implode(',',$skill);
-//     $sql = "UPDATE students SET
-//             name = '$name',
-//             phone = '$phone',
-//             email = '$email',
-//             edu = '$edu',
-//             gender = '$gender',
-//             skill = '$skill',
-//             comment = '$comment'
-//             WHERE id = ".$id;
-
-//     mysqli_query($db,$sql);
 	$sql = 'UPDATE students SET 
 					name	= ?,
 					phone	= ?,
@@ -22,9 +11,8 @@
 					skill	= ?,
 					comment	= ?
 					WHERE id = ?';
-	$stmt = $db->prepare($sql);
-	$stmt->bind_param('sssssssi',$name,$phone,$email,$edu,$gender,$skill,$comment,$id);
-	$stmt->execute();
+	$stmt = $pdo->prepare($sql);
+	$stmt->execute([$name,$phone,$email,$edu,$gender,$skill,$comment,$id]);
 					
     echo '<script>alert("資料已更新!");</script>';	
     header('refresh:0;url=show.php?id='.$id);
