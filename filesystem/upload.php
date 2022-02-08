@@ -27,8 +27,23 @@
 
     $target = 'images/'.$fullname;
 
-    if($error == 0){
-        move_uploaded_file($tmp_name,$target);
+    //
+    if($ext != 'jpg' && $ext != 'jpeg' && $ext != 'png' && $ext != 'gif' && $ext != 'webp'){
+        echo '<script>alert("請上傳正確的圖片格式！")</script>';
+        header('refresh:0;url=form.php');
+        return;
     }
 
-    header('location:form.php');
+
+    if($error == 0){
+        if(move_uploaded_file($tmp_name,$target)){
+            echo '<script>alert("上傳成功")</script>';
+            header('refresh:0;url=form.php');
+        }else{
+            echo '<script>alert("上傳失敗")</script>';
+            header('refresh:0;url=form.php');
+        }
+    }else{
+        echo '<script>alert("上傳錯誤")</script>';
+        header('refresh:0;url=form.php');
+    }
