@@ -11,10 +11,17 @@
     $name = check($name);
     $phone = check($phone);
     $email = check($email);
-
     $skill = implode(',',$skill);
-    $sql = "INSERT INTO students(name,phone,email,edu,gender,skill,comment)VALUES('$name','$phone','$email','$edu','$gender','$skill','$comment')";
-    mysqli_query($db,$sql);
+
+    // 方法一
+    // $sql = "INSERT INTO students(name,phone,email,edu,gender,skill,comment)VALUES('$name','$phone','$email','$edu','$gender','$skill','$comment')";
+    // mysqli_query($db,$sql);
+
+    // 預備陳述式
+    $sql = "INSERT INTO students(name,phone,email,edu,gender,skill,comment)VALUES(?,?,?,?,?,?,?)";
+    $stmt = $db->prepare($sql);
+    $stmt->bind_param('sssssss',$name,$phone,$email,$edu,$gender,$skill,$comment);
+    $stmt->execute();
 
     echo '<script>alert("資料已新增!");</script>';
     header('refresh:0;url=index.php');
