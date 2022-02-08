@@ -1,15 +1,11 @@
 <?php
-    include('db.php');
+    include('pdo.php');
 
     extract($_REQUEST);
 
-    // $sql = 'DELETE FROM students WHERE id ='.$id;
-    // mysqli_query($db,$sql);
-
     $sql = 'DELETE FROM students WHERE id = ?';
-    $stmt = $db->prepare($sql);
-    $stmt->bind_param('i',$id);
-    $stmt->execute();
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$id]);
 
     echo '<script>alert("資料已刪除!");</script>';
     header('refresh:0;url=index.php');
