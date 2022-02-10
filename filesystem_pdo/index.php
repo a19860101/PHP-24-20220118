@@ -1,7 +1,11 @@
 <?php
     include('pdo.php');
     if(isset($_POST['del'])){
-        unlink($_POST['img']);
+        extract($_REQUEST);
+        unlink('images/'.$_POST['path']);
+        $sql = 'DELETE FROM galleries WHERE id = ?';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$id]);
     }
     $sql = 'SELECT * FROM galleries ORDER BY created_at DESC';
     $imgs = $pdo->query($sql)->fetchAll();
@@ -58,7 +62,8 @@
         <div class="item">
             <img src="images/<?php echo $img['path']; ?>" alt="">
             <form action="" method="post">
-                <input type="hidden" name="img" value="<?php echo $img;?>">
+                <input type="hidden" name="path" value="<?php echo $img['path'];?>">
+                <input type="hidden" name="id" value="<?php echo $img['id'];?>">
                 <input type="submit" name="del" value="刪除" onclick="return confirm('確認刪除？')">
             </form>
         </div>
