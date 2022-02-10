@@ -1,3 +1,8 @@
+<?php
+    if(isset($_POST['del'])){
+        echo '刪除';
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +20,7 @@
         .item {
             flex: 0 0 25%;
             height: 250px;
+            position: relative;
         }
         img {
             width: 100%;
@@ -22,6 +28,14 @@
             vertical-align: top;
             object-fit: cover;
             object-position: center;
+        }
+        form {
+            background-color: rgba(0,0,0,.5);
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
         }
     </style>
 </head>
@@ -39,6 +53,9 @@
     ?>
         <div class="item">
             <img src="<?php echo $img; ?>" alt="">
+            <form action="" method="post">
+                <input type="submit" name="del" value="刪除">
+            </form>
         </div>
     <?php }?>
     </div>
