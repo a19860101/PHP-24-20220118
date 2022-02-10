@@ -14,9 +14,14 @@
         }
         .item {
             flex: 0 0 25%;
+            height: 250px;
         }
         img {
             width: 100%;
+            height: 100%;
+            vertical-align: top;
+            object-fit: cover;
+            object-position: center;
         }
     </style>
 </head>
