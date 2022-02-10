@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
+    <h1>上傳圖片</h1>
+    <a href="index.php">圖片列表</a>
     <form action="upload.php" method="post" enctype="multipart/form-data">
         <input type="file" name="img">
         <input type="submit" value="上傳圖片">
