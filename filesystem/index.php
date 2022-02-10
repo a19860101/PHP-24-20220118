@@ -1,6 +1,6 @@
 <?php
     if(isset($_POST['del'])){
-        echo '刪除';
+        unlink($_POST['img']);
     }
 ?>
 <!DOCTYPE html>
@@ -11,6 +11,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        * {
+            box-sizing: border-box;
+
+        }
         .container {
             display: flex;
             width: 1000px;
@@ -35,7 +39,6 @@
             bottom: 0;
             width: 100%;
             padding: 10px;
-            box-sizing: border-box;
         }
     </style>
 </head>
@@ -54,7 +57,8 @@
         <div class="item">
             <img src="<?php echo $img; ?>" alt="">
             <form action="" method="post">
-                <input type="submit" name="del" value="刪除">
+                <input type="hidden" name="img" value="<?php echo $img;?>">
+                <input type="submit" name="del" value="刪除" onclick="return confirm('確認刪除？')">
             </form>
         </div>
     <?php }?>
