@@ -1,7 +1,11 @@
 <?php
+    include('pdo.php');
     if(isset($_POST['del'])){
         unlink($_POST['img']);
     }
+    $sql = 'SELECT * FROM galleries ORDER BY created_at DESC';
+    $imgs = $pdo->query($sql)->fetchAll();
+    $img_num = count($imgs);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,10 +47,7 @@
     </style>
 </head>
 <body>
-    <?php
-        $imgs = glob('images/*');
-        $img_num = count($imgs);
-    ?>
+
     <h1>圖片列表 目前共有<?php echo $img_num?>張圖片</h1>
     <a href="form.php">上傳圖片</a>
     <div class="container">
@@ -55,7 +56,7 @@
         foreach($imgs as $img){
     ?>
         <div class="item">
-            <img src="<?php echo $img; ?>" alt="">
+            <img src="images/<?php echo $img['path']; ?>" alt="">
             <form action="" method="post">
                 <input type="hidden" name="img" value="<?php echo $img;?>">
                 <input type="submit" name="del" value="刪除" onclick="return confirm('確認刪除？')">
