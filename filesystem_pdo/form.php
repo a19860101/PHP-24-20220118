@@ -20,5 +20,12 @@
         <input type="submit" value="上傳圖片">
     </form>
 
+    <div>
+        <?php 
+            // echo date_default_timezone_get();
+            // date_default_timezone_set('Asia/Taipei');
+            // echo date('Y-m-d H:i:s');
+        ?>
+    </div>
 </body>
 </html>

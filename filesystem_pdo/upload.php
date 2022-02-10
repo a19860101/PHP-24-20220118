@@ -52,12 +52,17 @@
             $name = $img['name'];
         }
         $path = $img['path'];
-        $sql = "INSERT INTO galleries(path,name,created_at)VALUES(?,?,now())";
+        date_default_timezone_set('Asia/Taipei');
+        $now = date('Y-m-d H:i:s');
+        $sql = "INSERT INTO galleries(path,name,created_at)VALUES(?,?,?)";
         $stmt = $pdo->prepare($sql);
-        $stmt->execute([$path,$name]);
+        $stmt->execute([$path,$name,$now]);
     }
 
     // $result = store($_FILES['img'],$_REQUEST);
     // var_dump($result);
 
     store($_FILES['img'],$_REQUEST);
+
+    echo '<script>alert("上傳成功")</script>';
+    header('refresh:0;url=form.php');
