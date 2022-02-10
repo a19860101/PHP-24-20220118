@@ -1,5 +1,5 @@
 <?php
-
+    include('pdo.php');
     function imgUpload($files){
         extract($files);
         
@@ -17,14 +17,11 @@
         $fullname = $img_name.'.'.$ext;
 
         $target = 'images/'.$fullname;
-
-        //
         if($ext != 'jpg' && $ext != 'jpeg' && $ext != 'png' && $ext != 'gif' && $ext != 'webp'){
             echo '<script>alert("請上傳正確的圖片格式！")</script>';
             header('refresh:0;url=form.php');
             return;
         }
-
 
         if($error == 0){
             if(move_uploaded_file($tmp_name,$target)){
@@ -43,6 +40,24 @@
         }
     }
 
-    $img = imgUpload($_FILES['img']);
 
-    var_dump($img);
+
+    function store($files,$request){
+        global $pdo;
+        
+        $img = imgUpload($files);
+        
+        extract($request);
+        if($name == ''){
+            $name = $img['name'];
+        }
+        $path = $img['path'];
+        $sql = "INSERT INTO galleries(path,name,created_at)VALUES(?,?,now())";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$path,$name]);
+    }
+
+    // $result = store($_FILES['img'],$_REQUEST);
+    // var_dump($result);
+
+    store($_FILES['img'],$_REQUEST);
