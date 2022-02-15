@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="post">
+    <form action="store.php" method="post">
         <div>
             <label for="">名稱</label>
             <input type="text" name="name">
