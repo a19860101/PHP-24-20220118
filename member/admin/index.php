@@ -8,6 +8,20 @@
     }catch(PDOException $e){
         echo $e->getMessage();
     }
+
+    if(isset($_POST['switchRole'])){
+        // var_dump($_REQUEST);
+        $sql_role = 'UPDATE users SET role = ? WHERE id = ?';
+        extract($_REQUEST);
+        $stmt = $pdo->prepare($sql_role);
+        if($_POST['role'] == 0){
+            $role = 1;
+        }else{
+            $role = 0;
+        }
+        $stmt->execute([$role,$id]);
+        header('location:index.php');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,9 +70,13 @@
             </td>
             <td><?php echo $user['created_at'];?></td>
             <td>
+                <?php if($_SESSION['AUTH']['id'] != $user['id']){ ?>
                 <form action="" method="post">
-                    <input type="submit" value="切換權限">
+                    <input type="hidden" value="<?php echo $user['role'];?>" name="role">
+                    <input type="hidden" value="<?php echo $user['id'];?>" name="id">
+                    <input type="submit" value="切換權限" name="switchRole">
                 </form>
+                <?php } ?>
             </td>
         </tr>
         <?php } ?>
