@@ -1,6 +1,7 @@
 <?php
     include('pdo.php');
     extract($_REQUEST);
+    $pw = sha1(md5($pw));
     $sql = 'INSERT INTO users(name,email,pw,created_at)VALUES(?,?,?,?)';
 
     $stmt = $pdo->prepare($sql);
