@@ -8,7 +8,7 @@
 </head>
 <body>
     <nav>
-        <a href="#">會員登入</a>
+        <a href="login.php">會員登入</a>
         <a href="register.php">會員註冊</a>
         <a href="#">登出</a>
     </nav>
