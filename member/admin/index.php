@@ -1,6 +1,9 @@
 <?php
     include('../pdo.php');
     session_start();
+    if(!isset($_SESSION['AUTH']) || $_SESSION['AUTH']['role'] != 0){
+        header('location:../index.php');
+    }
     $sql = 'SELECT * FROM users ORDER BY created_at DESC';
     try {
 
