@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +11,14 @@
 </head>
 <body>
     <nav>
+        <?php if(!isset($_SESSION['AUTH'])){ ?>
         <a href="login.php">會員登入</a>
         <a href="register.php">會員註冊</a>
-        <a href="#">登出</a>
+        <?php } ?>
+        <?php if(isset($_SESSION['AUTH'])){ ?>
+        <span><?php echo $_SESSION['AUTH']['name'];?></span>
+        <a href="logout.php">登出</a>
+        <?php } ?>
     </nav>
 </body>
 </html>
