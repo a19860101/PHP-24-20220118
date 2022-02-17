@@ -63,3 +63,19 @@
             echo $e->getMessage();
         }
     }
+    function update($request){
+        extract($request);
+        $skill = implode(',',$skill);
+        $sql = 'UPDATE students SET 
+                        name	= ?,
+                        phone	= ?,
+                        email	= ?,
+                        edu		= ?,
+                        gender	= ?,
+                        skill	= ?,
+                        comment	= ?
+                        WHERE id = ?';
+        $stmt = pdo()->prepare($sql);
+        $stmt->execute([$name,$phone,$email,$edu,$gender,$skill,$comment,$id]);
+        
+    }
