@@ -10,7 +10,11 @@
         <div class="col-10">
             <h2><?php echo $post['title'];?></h2>
             <div>
-                <?php echo $post['content'];?>
+                <?php 
+                    $content = mb_substr($post['content'],0,150);
+                    echo  $content;
+                ?>
+                ...
             </div>
             <a href="post/show.php?id=<?php echo $post['id'];?>" class="btn btn-outline-primary btn-sm">繼續閱讀</a>
             <div>
