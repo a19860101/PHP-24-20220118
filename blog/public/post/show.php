@@ -5,8 +5,8 @@
 ?>
 <?php include("../template/header.php"); ?>
 <div class="container">
-    <div class="row">
-        <div class="col-10">
+    <div class="row justify-content-center">
+        <div class="col-8">
             <h2><?php echo $post['title'];?></h2>
             <div>
                 <?php echo $post['content'];?>

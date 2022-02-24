@@ -26,7 +26,9 @@
                         <option value="3"<?php echo $post['category_id'] == 3 ?'selected':'';?>>科技</option>
                     </select>
                 </div>
+                <input type="hidden" value="<?php echo $post['id'];?>" name="id">
                 <input type="submit" class="btn btn-primary" value="儲存文章">
+                <input type="button" class="btn btn-danger" value="取消" onclick="history.back()">
             </form>
         </div>
     </div>

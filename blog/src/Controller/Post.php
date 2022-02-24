@@ -34,6 +34,13 @@
             $now = DB::now();
             $stmt->execute([$title,$content,$category_id,$user_id,$now,$now]);
         }
+        function update($request){
+            extract($request);
+            $sql = "UPDATE posts SET title=?,content=?,category_id=?,updated_at=? WHERE id=?";
+            $stmt =DB::connect()->prepare($sql);
+            $now = DB::now();
+            $stmt->execute([$title,$content,$category_id,$now,$id]);
+        }
         function delete($request){
             extract($request);
             $sql = 'DELETE FROM posts WHERE id = ?';
