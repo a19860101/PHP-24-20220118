@@ -8,6 +8,15 @@
             $datas = DB::connect()->query($sql)->fetchAll();
             return $datas;
         }
+        function show($request){
+            extract($request);
+            $sql = "SELECT * FROM posts WHERE id = ?";
+            $stmt = DB::connect()->prepare($sql);
+            $stmt->execute([$id]);
+            $data = $stmt->fetch();
+            return $data;
+
+        }
         static function store($request){
             extract($request);
             $sql = "INSERT INTO posts(title,content,category_id,user_id,created_at,updated_at)VALUES(?,?,?,?,?,?)";
