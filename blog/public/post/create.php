@@ -4,7 +4,7 @@
         <div class="col-xl-6 col-sm-8">
             <h2>建立文章</h2>
             <hr>
-            <form action="">
+            <form action="store.php" method="post">
                 <div class="mb-3">
                     <label for="title" class="form-label">文章標題</label>
                     <input type="text" name="title" id="title" class="form-control">
