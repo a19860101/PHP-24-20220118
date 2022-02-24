@@ -15,7 +15,9 @@
             <div>
                 最後更新時間 <?php echo $post['updated_at']; ?>
             </div>
-            <form action="delete.php" method="post">
+            <hr>
+            <a href="edit.php?id=<?php echo $post["id"];?>" class="btn btn-success">編輯文章</a>
+            <form action="delete.php" method="post" class="d-inline-block">
                 <input type="hidden" name="id" value="<?php echo $post["id"];?>">
                 <input type="submit" class="btn btn-danger" value="刪除" onclick="return confirm('確認刪除？')">
             </form>
