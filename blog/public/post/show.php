@@ -11,10 +11,14 @@
             <div>
                 <?php echo $post['content'];?>
             </div>
-            <a href="post/show.php" class="btn btn-outline-primary btn-sm">繼續閱讀</a>
+            <hr>
             <div>
                 最後更新時間 <?php echo $post['updated_at']; ?>
             </div>
+            <form action="delete.php" method="post">
+                <input type="hidden" name="id" value="<?php echo $post["id"];?>">
+                <input type="submit" class="btn btn-danger" value="刪除" onclick="return confirm('確認刪除？')">
+            </form>
             <hr>
         </div>
     </div>

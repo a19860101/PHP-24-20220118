@@ -25,4 +25,11 @@
             $now = DB::now();
             $stmt->execute([$title,$content,$category_id,$user_id,$now,$now]);
         }
+        function delete($request){
+            extract($request);
+            $sql = 'DELETE FROM posts WHERE id = ?';
+            $stmt = DB::connect()->prepare($sql);
+            $stmt->execute([$id]);
+            
+        }
     }
