@@ -28,7 +28,7 @@
         }
         static function store($request){
             extract($request);
-            $sql = "INSERT INTO posts(title,content,category_id,user_id,created_at,updated_at)VALUES(?,?,?,?,?,?)";
+            $sql = "INSERT INTO posts(title,cover,content,category_id,user_id,created_at,updated_at)VALUES(?,?,?,?,?,?,?)";
             $user_id = 1;
             $stmt =DB::connect()->prepare($sql);
             $now = DB::now();
