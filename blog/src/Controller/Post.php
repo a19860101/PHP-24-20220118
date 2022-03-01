@@ -4,13 +4,13 @@
 
     class Post extends DB {
         function index(){
-            $sql = "SELECT * FROM posts ORDER BY id DESC";
+            $sql = "SELECT posts.*,categories.title AS category_title FROM posts LEFT JOIN categories ON posts.category_id = categories.id ORDER BY id DESC";
             $datas = DB::connect()->query($sql)->fetchAll();
             return $datas;
         }
         function show($request){
             extract($request);
-            $sql = "SELECT * FROM posts WHERE id = ?";
+            $sql = "SELECT posts.*,categories.title AS category_title FROM posts LEFT JOIN categories ON posts.category_id = categories.id WHERE posts.id = ?";
             $stmt = DB::connect()->prepare($sql);
             $stmt->execute([$id]);
             $data = $stmt->fetch();

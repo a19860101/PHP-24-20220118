@@ -9,6 +9,7 @@
         <?php foreach($posts as $post){ ?>
         <div class="col-10">
             <h2><?php echo $post['title'];?></h2>
+            <h5>分類:<?php echo $post['category_title'];?></h5>
             <div>
                 <?php 
                     $content = mb_substr($post['content'],0,150);
