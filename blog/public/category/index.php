@@ -1,3 +1,8 @@
+<?php
+    require_once('../../vendor/autoload.php');
+    use Gjun\Blog\Controller\Category;
+    $categories = Category::index();
+?>
 <?php include('../template/header.php'); ?>
 <div class="container">
     <div class="row">
@@ -20,11 +25,15 @@
         </div>
         <div class="col-4">
             <ul class="list-group">
-                <li class="list-group-item">分類</li>
-                <li class="list-group-item">分類</li>
-                <li class="list-group-item">分類</li>
-                <li class="list-group-item">分類</li>
-                <li class="list-group-item">分類</li>
+                <?php foreach($categories as $category){ ?>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <?php echo $category['title'];?>
+                    <form action="delete.php" method="post">
+                        <input type="hidden" name="id" value="<?php echo $category['id'];?>">
+                        <input type="submit" value="刪除" class="btn btn-danger" onclick="return confirm('此動作無法回復，確定要刪除？')">
+                    </form>
+                </li>
+                <?php } ?>
             </ul>
         </div>
     </div>
