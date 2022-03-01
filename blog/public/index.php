@@ -8,6 +8,9 @@
     <div class="row justify-content-center">
         <?php foreach($posts as $post){ ?>
         <div class="col-10">
+            <div>
+                <img src="post/images/<?php echo $post['cover']; ?>" alt="" class="w-100">
+            </div>
             <h2><?php echo $post['title'];?></h2>
             <h5>分類:<?php echo $post['category_title'];?></h5>
             <div>
