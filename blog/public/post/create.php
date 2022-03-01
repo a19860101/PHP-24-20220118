@@ -9,10 +9,14 @@
         <div class="col-xl-6 col-sm-8">
             <h2>建立文章</h2>
             <hr>
-            <form action="store.php" method="post">
+            <form action="store.php" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="title" class="form-label">文章標題</label>
                     <input type="text" name="title" id="title" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="cover" class="form-label">封面圖片</label>
+                    <input type="file" name="cover" id="cover">
                 </div>
                 <div class="mb-3">
                     <label for="category_id">文章分類</label>
