@@ -2,8 +2,8 @@
     namespace Gjun\Blog\Controller;
 
     class File {
-        function upload($files){
-            extract($files);
+        function upload($file){
+            extract($file);
             
             if(!is_dir('images')){
                 mkdir('images');
@@ -34,8 +34,11 @@
                     ];
                     return $status;
                 }else{
-                    echo '<script>alert("上傳失敗")</script>';
-                    header('refresh:0;url=index.php');
+                    $status = [
+                        'status' => 1,
+                        'statusText' => '上傳失敗',
+                    ];
+                    return $status;
                 }
             }else{
                 echo '<script>alert("上傳錯誤")</script>';
