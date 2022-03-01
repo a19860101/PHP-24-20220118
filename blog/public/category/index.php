@@ -6,7 +6,7 @@
             <hr>
         </div>
         <div class="col-8">
-            <form action="" method="post">
+            <form action="store.php" method="post">
                 <div class="mb-3">
                     <label for="" class="form-label">分類名稱</label>
                     <input type="text" name="title" class="form-control">
