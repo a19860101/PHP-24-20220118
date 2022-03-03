@@ -4,7 +4,11 @@
         <div class="col-8">
             <h2>註冊會員</h2>
             <hr>
-            <form action="" method="post">
+            <form action="store.php" method="post">
+                <div class="mb-3">
+                    <label for="name" class="form-label">使用者名稱</label>
+                    <input type="text" class="form-control" name="name" id="name">
+                </div>  
                 <div class="mb-3">
                     <label for="email" class="form-label">E-mail</label>
                     <input type="email" class="form-control" name="email" id="email">
