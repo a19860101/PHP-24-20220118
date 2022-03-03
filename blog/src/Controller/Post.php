@@ -54,4 +54,7 @@
             $stmt->execute([$id]);
 
         }
+        function search($request){
+            extract($request);
+        }
     }

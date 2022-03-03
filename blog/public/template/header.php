@@ -26,6 +26,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="<?php echo $webroot;?>">首頁</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="<?php echo $webroot;?>post/search.php">搜尋文章</a>
+                </li>
                 <?php if(isset($_SESSION['AUTH'])){ ?>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo $webroot;?>post/create.php">建立文章</a>
