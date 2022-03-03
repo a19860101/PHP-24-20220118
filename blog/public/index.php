@@ -9,7 +9,11 @@
         <?php foreach($posts as $post){ ?>
         <div class="col-10">
             <div>
+                <?php if($post['cover'] == null){ ?>
+                <img src="post/images/null.jpg" alt="" class="w-100">
+                <?php }else{ ?>
                 <img src="post/images/<?php echo $post['cover']; ?>" alt="" class="w-100">
+                <?php } ?>
             </div>
             <h2><?php echo $post['title'];?></h2>
             <h5>分類:<?php echo $post['category_title'];?></h5>
