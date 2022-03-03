@@ -28,8 +28,9 @@
         }
         static function store($request,$file){
             extract($request);
+            session_start();
             $sql = "INSERT INTO posts(title,cover,content,category_id,user_id,created_at,updated_at)VALUES(?,?,?,?,?,?,?)";
-            $user_id = 1;
+            $user_id = $_SESSION['AUTH']['id'];
             $stmt =DB::connect()->prepare($sql);
             $now = DB::now();
             $img = File::upload($file);
