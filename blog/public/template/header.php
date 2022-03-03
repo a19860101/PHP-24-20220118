@@ -26,13 +26,14 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="<?php echo $webroot;?>">首頁</a>
                 </li>
+                <?php if(isset($_SESSION['AUTH'])){ ?>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo $webroot;?>post/create.php">建立文章</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo $webroot;?>category/index.php">分類管理</a>
                 </li>
-                
+                <?php } ?>
             </ul>
             <ul class="navbar-nav ms-auto">
                 <?php if(!isset($_SESSION['AUTH'])){ ?>
@@ -45,7 +46,10 @@
                 <?php } ?>
                 <?php if(isset($_SESSION['AUTH'])){ ?>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">登出</a>
+                    <a href="#" class="nav-link"><?php echo $_SESSION['AUTH']['name'];?></a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?php echo $webroot;?>auth/logout.php" class="nav-link">登出</a>
                 </li>
                 <?php } ?>
             </ul>
