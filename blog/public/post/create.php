@@ -2,6 +2,11 @@
     require_once('../../vendor/autoload.php');
     use Gjun\Blog\Controller\Category;
     $categories = Category::index();
+
+    session_start();
+    if(!isset($_SESSION['AUTH'])){
+        header('location:../index.php');
+    }
 ?>
 <?php include('../template/header.php'); ?>
 <div class="container">
