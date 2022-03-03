@@ -2,10 +2,8 @@
     require_once('../../vendor/autoload.php');
     use Gjun\Blog\Controller\Category;
     $categories = Category::index();
-    session_start();
-    if(!isset($_SESSION['AUTH']) || $_SESSION['AUTH']['role'] != 0){
-        header('location:../index.php');
-    }
+    
+    Gjun\Blog\Controller\Auth::isAdmin();
 ?>
 <?php include('../template/header.php'); ?>
 <div class="container">

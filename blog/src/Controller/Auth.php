@@ -3,6 +3,10 @@
     use Gjun\Blog\Config\DB;
 
     class Auth extends DB {
+
+        function __construct(){
+            session_start();
+        }
         function store($request){
             extract($request);
             
@@ -53,6 +57,20 @@
             }else{
                 echo '<script>alert("帳號或密碼錯誤!")</script>';
                 header('refresh:0;url=login.php');
+            }
+        }
+        function isGuest(){
+            $webroot = 'http://localhost/PHP-24-20220118/blog/public/';
+            if(!isset($_SESSION['AUTH'])){
+                header('location:'.$webroot);
+            }
+        }
+        function isAdmin(){
+            
+            $webroot = 'http://localhost/PHP-24-20220118/blog/public/';
+            if(!isset($_SESSION['AUTH']) || $_SESSION['AUTH']['role'] != 0){
+                echo '<script>alert("您沒有管理權限!")</script>';
+                header('refresh:0;url='.$webroot);
             }
         }
     }
