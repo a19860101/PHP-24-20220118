@@ -2,10 +2,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-6">
-            <form action="" method="get">
+            <form action="result.php" method="get">
                 <div class="row g-1">
                     <div class="col-8">
-                        <input type="text" class="form-control">
+                        <input type="text" name="keyword" class="form-control">
                     </div>
                     <div class="col-4">
                         <input type="submit" value="搜尋文章" class="btn btn-primary">
