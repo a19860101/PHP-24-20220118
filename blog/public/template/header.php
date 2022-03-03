@@ -1,5 +1,9 @@
 <?php
     $webroot = 'http://localhost/PHP-24-20220118/blog/public/';
+    if(!session_id()){
+        session_start();
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,15 +35,19 @@
                 
             </ul>
             <ul class="navbar-nav ms-auto">
+                <?php if(!isset($_SESSION['AUTH'])){ ?>
                 <li class="nav-item">
                     <a href="<?php echo $webroot;?>auth/register.php" class="nav-link">註冊會員</a>
                 </li>
                 <li class="nav-item">
                     <a href="<?php echo $webroot;?>auth/login.php" class="nav-link">登入</a>
                 </li>
+                <?php } ?>
+                <?php if(isset($_SESSION['AUTH'])){ ?>
                 <li class="nav-item">
                     <a href="#" class="nav-link">登出</a>
                 </li>
+                <?php } ?>
             </ul>
         </div>
     </div>

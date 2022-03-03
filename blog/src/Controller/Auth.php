@@ -44,10 +44,10 @@
                 $_SESSION['AUTH'] = $user;
                 if($user['role'] == 0){
                     echo '<script>alert("管理員登入成功!")</script>';
-                    header('refresh:0;url=index.php');
+                    // header('refresh:0;url=index.php');
                 }else{
                     echo '<script>alert("登入成功!")</script>';
-                    header('refresh:0;url=index.php');
+                    // header('refresh:0;url=index.php');
                 }
                 
             }else{
