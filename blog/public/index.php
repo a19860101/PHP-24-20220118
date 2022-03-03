@@ -16,10 +16,11 @@
                 <?php } ?>
             </div>
             <h2><?php echo $post['title'];?></h2>
-            <h5>分類:<?php echo $post['category_title'];?></h5>
+            <div>作者:<?php echo $post['user_name']; ?>&#060;<?php echo $post['user_email'];?>&#062;</div>
+            <div>分類:<?php echo $post['category_title'];?></div>
             <div>
                 <?php 
-                    $content = mb_substr($post['content'],0,150);
+                    $content = mb_substr(strip_tags($post['content']),0,150);
                     echo  $content;
                 ?>
                 ...
