@@ -56,8 +56,9 @@
         }
         function search($request){
             extract($request);
-            $sql = 'SELECT * FROM posts WHERE title = ?';
+            $sql = 'SELECT * FROM posts WHERE title LIKE ?';
             $stmt = DB::connect()->prepare($sql);
+            $keyword = '%'.$keyword.'%';
             $stmt->execute([$keyword]);
             $datas = $stmt->fetchAll();
             return $datas;
