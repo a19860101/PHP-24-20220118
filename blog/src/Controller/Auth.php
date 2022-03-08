@@ -60,13 +60,15 @@
             }
         }
         function isGuest(){
+            session_start();
             $webroot = 'http://localhost/PHP-24-20220118/blog/public/';
             if(!isset($_SESSION['AUTH'])){
                 header('location:'.$webroot);
             }
         }
         function isAdmin(){
-            
+            session_start();
+
             $webroot = 'http://localhost/PHP-24-20220118/blog/public/';
             if(!isset($_SESSION['AUTH']) || $_SESSION['AUTH']['role'] != 0){
                 echo '<script>alert("您沒有管理權限!")</script>';
