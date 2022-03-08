@@ -55,7 +55,11 @@
 
         }
         function search($request){
-            // extract($request);
-            var_dump($request);
+            extract($request);
+            $sql = 'SELECT * FROM posts WHERE title = ?';
+            $stmt = DB::connect()->prepare($sql);
+            $stmt->execute([$keyword]);
+            $datas = $stmt->fetchAll();
+            return $datas;
         }
     }
